@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color and Border Changer</title>
+<style>
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #000;
+  }
+  #colorInput, #borderWidthInput {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <label for="colorInput">Enter RGB Values (comma-separated):</label>
+    <input type="text" id="colorInput" placeholder="e.g. 255,0,0">
+    <label for="borderWidthInput">Border Width:</label>
+    <input type="number" id="borderWidthInput" min="0" value="2">
+    <button onclick="changeStyles()">Apply Changes</button>
+    <p id="dummyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <script>
+    function changeStyles() {
+      const colorInput = document.getElementById("colorInput").value.split(",");
+      const borderWidth = document.getElementById("borderWidthInput").value;
+
+      const paragraph = document.getElementById("dummyText");
+      const container = document.querySelector(".container");
+
+      paragraph.style.color = `rgb(${colorInput[0]}, ${colorInput[1]}, ${colorInput[2]})`;
+      container.style.borderColor = `rgb(${colorInput[0]}, ${colorInput[1]}, ${colorInput[2]})`;
+      container.style.borderWidth = `${borderWidth}px`;
+    }
+  </script>
+</body>
+</html>

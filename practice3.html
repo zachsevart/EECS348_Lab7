@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Verification</title>
+</head>
+<body>
+  <script>
+    function getPassword() {
+      let password1, password2;
+
+      do {
+        // Prompt user for password
+        password1 = prompt("Enter a password (at least eight characters):");
+
+        // Check if password1 meets the criteria
+        if (password1.length < 8) {
+          alert("Password must be at least eight characters long.");
+          continue; // Restart loop
+        }
+
+        // Prompt user to confirm password
+        password2 = prompt("Confirm your password:");
+
+        // Check if passwords match
+        if (password1 !== password2) {
+          alert("Passwords do not match. Please try again.");
+        } else {
+          alert("Passwords matched!");
+          window.location.href = "index.html"; // Redirect to index.html
+          break; // Exit the loop
+        }
+      } while (true);
+    }
+
+    // Call the function
+    getPassword();
+  </script>
+</body>
+</html>
